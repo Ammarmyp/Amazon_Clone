@@ -1,23 +1,28 @@
 import "../styles/product.css";
 
-const Product = () => {
+interface Props {
+  title: string;
+  image: string;
+  price: number;
+  rating: number;
+}
+
+const Product = ({ title, image, price, rating }: Props) => {
   return (
     <div className="product">
       <div className="product_info">
-        <p>The lean startup</p>
+        <p>{title}</p>
         <p className="product_price">
           <small>$</small>
-          <strong>19.99</strong>
+          <strong>{price}</strong>
         </p>
         <div className="product_rating">
-          <p>🌟</p>
+          {(rating > 0 ? Array(rating).fill(<p>🌟</p>) : []).map((star, i) => (
+            <p key={i}>{star} </p>
+          ))}
         </div>
         <div>
-          <img
-            src={
-              "https://m.media-amazon.com/images/I/41WY1ERM0+L._AC_SR400,600_.jpg"
-            }
-          />
+          <img src={image} />
         </div>
       </div>
       <button>Add to Cart</button>
