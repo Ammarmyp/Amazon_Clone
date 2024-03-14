@@ -9,7 +9,7 @@ interface Product {
   title: string;
   price: number;
   desrcription: string;
-  image: string;
+  images: string[];
 }
 
 const ProductGrid = () => {
@@ -34,11 +34,13 @@ const ProductGrid = () => {
       {error && <p>{error}</p>}
       <div className="productGrid">
         {products.map((product) => (
-          <Product
+          // since the products above id 56 have no value
+          // this can be removed as required
+         (product.id <56) && <Product
             key={product.id}
             title={product.title}
             price={product.price}
-            image={product.image}
+            image={product.images[0||1||2]}
           />
         ))}
       </div>
