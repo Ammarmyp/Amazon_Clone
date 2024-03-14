@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import apiClient from "../services/api-client";
 import Product from "./Product";
 import "../styles/productGrid.css";
+import { CanceledError } from "axios";
 
 interface Product {
   id: number;
@@ -16,23 +17,32 @@ const ProductGrid = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
+    const controller = new AbortController();
     apiClient
-      .get<Product[]>("/products")
+      .get<Product[]>("/products", { signal: controller.signal })
       .then((res) => setProducts(res.data))
-      .catch((err) => setError(err.message));
-  });
+      .catch((err) => {
+        if (err instanceof CanceledError) return;
+        setError(err.message);
+      });
+
+    return () => controller.abort();
+  }, []);
 
   return (
-    <div className="productGrid">
-      {products.map((product) => (
-        <Product
-          key={product.id}
-          title={product.title}
-          price={product.price}
-          image={product.image}
-        />
-      ))}
-    </div>
+    <>
+      {error && <p>{error}</p>}
+      <div className="productGrid">
+        {products.map((product) => (
+          <Product
+            key={product.id}
+            title={product.title}
+            price={product.price}
+            image={product.image}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

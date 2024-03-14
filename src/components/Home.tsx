@@ -1,5 +1,4 @@
 import "../styles/home.css";
-import Product from "./Product";
 import ProductGrid from "./ProductGrid";
 
 const Home = () => {
