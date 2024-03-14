@@ -6,10 +6,11 @@
     background-color:white ;
     margin: 10px;
     padding: 20px;
-    width: 100%;
+    width: 290px;
     max-height: 400px;
     min-width: 100px;
     z-index: 1;
+    border-radius: 5px;
 }
 
 .product  img {

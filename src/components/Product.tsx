@@ -4,7 +4,7 @@ interface Props {
   title: string;
   image: string;
   price: number;
-  rating: number;
+  rating?: number;
 }
 
 const Product = ({ title, image, price, rating }: Props) => {
@@ -17,7 +17,7 @@ const Product = ({ title, image, price, rating }: Props) => {
           <strong>{price}</strong>
         </p>
         <div className="product_rating">
-          {(rating > 0 ? Array(rating).fill(<p>🌟</p>) : []).map((star, i) => (
+          {(rating ?? 0 > 0 ? Array(rating).fill(<p>🌟</p>) : []).map((star, i) => (
             <p key={i}>{star} </p>
           ))}
         </div>
