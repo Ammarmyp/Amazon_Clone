@@ -4,17 +4,24 @@ import Product from "./Product";
 import "../styles/productGrid.css";
 import { CanceledError } from "axios";
 
-interface Product {
+
+
+export interface Product {
   id: number;
   title: string;
   price: number;
   desrcription: string;
-  images: string[];
+  image: string;
+  rating: {
+    rate: number
+  };
 }
+
 
 const ProductGrid = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState("");
+  
 
   useEffect(() => {
     const controller = new AbortController();
@@ -29,6 +36,8 @@ const ProductGrid = () => {
     return () => controller.abort();
   }, []);
 
+  
+
   return (
     <>
       {error && <p>{error}</p>}
@@ -40,7 +49,8 @@ const ProductGrid = () => {
             key={product.id}
             title={product.title}
             price={product.price}
-            image={product.images[0||1||2]}
+            image={product.image}
+            rating={product.rating.rate}
           />
         ))}
       </div>
