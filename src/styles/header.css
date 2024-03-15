@@ -19,6 +19,14 @@
     object-fit: contain;
     margin: 10px  20px 0 20px;
 }
+.wrapper{
+    display: inline-block;
+    margin-right: 2px;
+}
+.wrapper:hover {
+    border: 1px solid white;
+    /* padding: 5px; */
+}
 
 .header_searchIcon {
     padding: 5px;
@@ -44,6 +52,7 @@
     margin-right: 10px;
     margin-left: 10px;
 }
+
 
 .header_optionLineOne {
     font-size: 10px;
