@@ -1,4 +1,5 @@
 import Header from "../components/Header";
+import Subtotal from "../components/Subtotal";
 import "../styles/chekout.css";
 
 const Checkout = () => {
@@ -12,14 +13,12 @@ const Checkout = () => {
             className="checkout_ad"
           />
           <div>
-            <h2 className="checkout_title">
-              Your Shopping Basket
-            </h2>
+            <h2 className="checkout_title">Your Shopping Basket</h2>
           </div>
         </div>
 
         <div className="checkout_right">
-          <h2>sub total </h2>
+          <Subtotal/>
         </div>
       </div>
     </>
