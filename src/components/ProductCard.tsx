@@ -1,20 +1,24 @@
+import { useContext } from "react";
 import "../styles/product.css";
+import BasketContex from "../contexts/basketContext";
+import { Product } from "../hooks/useProducts";
 
 interface Props {
-  title: string;
-  image: string;
-  price: number;
-  rating: number;
+  product: Product;
 }
 
-const Product = ({ title, image, price, rating }: Props) => {
+const ProductCard = ({ product }: Props) => {
+  const { products, dispatch } = useContext(BasketContex);
+
+  console.log("basket: ", products);
+
   return (
     <div className="product">
       <div className="product_info">
-        <p>{title}</p>
+        <p>{product.title}</p>
         <p className="product_price">
           <small>$</small>
-          <strong>{price}</strong>
+          <strong>{product.price}</strong>
         </p>
         {/* <div className="product_rating">
           {((rating ?? 0) > 0 ? Array(rating).fill(<p>🌟</p>) : []).map((star, i) => (
@@ -24,18 +28,22 @@ const Product = ({ title, image, price, rating }: Props) => {
         <div className="product_rating">
           {/*  //the second argument here is a mapping function
           //mapping eachl element of the array to a star. */}
-          {Array.from({ length: rating ?? 0 }, (_, i) => (
+          {Array.from({ length: product.rating.rate ?? 0 }, (_, i) => (
             <p key={i}>🌟</p>
           ))}
         </div>
 
         <div>
-          <img src={image} />
+          <img src={product.image} />
         </div>
       </div>
-      <button>Add to Cart</button>
+      <button
+        onClick={() => dispatch({ type: "ADD TO BASKET", product: product })}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 };
 
-export default Product;
+export default ProductCard;

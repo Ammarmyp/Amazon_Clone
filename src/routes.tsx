@@ -1,16 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 import Checkout from "./pages/Checkout";
-import App from "./App";
+import HomePage from "./pages/HomePage";
+import Layout from "./pages/Layout";
 
 const router = createBrowserRouter([
-    {
-      path: "/checkout",
-      element: <Checkout />,
-    },
-    {
-      path: "/",
-      element: <App />,
-    },
-  ]);
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        index: true,
+        element: <HomePage />,
+      },
+      {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+    ],
+  },
+]);
 
-  export default router;
+export default router;

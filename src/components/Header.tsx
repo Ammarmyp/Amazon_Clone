@@ -1,9 +1,14 @@
-import "../styles/header.css";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import BasketContex from "../contexts/basketContext";
+import "../styles/header.css";
 
 const Header = () => {
+  const { products } = useContext(BasketContex);
+
+  console.log(products);
   return (
     <div className="header">
       <div className="wrapper">
@@ -35,7 +40,9 @@ const Header = () => {
         <Link to="/checkout">
           <div className="header_optionCart">
             <ShoppingCartIcon />
-            <span className="header_optionLineTwo header_cartCount">0</span>
+            <span className="header_optionLineTwo header_cartCount">
+              {products.length}
+            </span>
           </div>
         </Link>
       </div>

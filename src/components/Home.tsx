@@ -6,7 +6,6 @@ const Home = () => {
   const { products } = useProducts();
 
   const bannerImage = products[Math.floor(Math.random() * products.length)];
-  console.log(bannerImage);
   return (
     <div className="home">
       <div className="home_container">

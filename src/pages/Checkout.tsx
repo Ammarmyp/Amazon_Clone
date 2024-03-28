@@ -1,11 +1,9 @@
-import Header from "../components/Header";
 import Subtotal from "../components/Subtotal";
 import "../styles/chekout.css";
 
 const Checkout = () => {
   return (
     <>
-      <Header />
       <div className="checkout">
         <div className="checkout_left">
           <img
@@ -18,7 +16,7 @@ const Checkout = () => {
         </div>
 
         <div className="checkout_right">
-          <Subtotal/>
+          <Subtotal />
         </div>
       </div>
     </>
