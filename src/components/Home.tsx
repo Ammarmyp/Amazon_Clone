@@ -1,14 +1,20 @@
-import { useEffect, useState } from "react";
+import useProducts from "../hooks/useProducts";
 import "../styles/home.css";
 import ProductGrid from "./ProductGrid";
 
 const Home = () => {
+  const { products } = useProducts();
+
+  const bannerImage = products[Math.floor(Math.random() * products.length)];
+  console.log(bannerImage);
   return (
     <div className="home">
       <div className="home_container">
         <img
           className="home_banner_image"
-          src="https://images.expertreviews.co.uk/wp-content/uploads/2023/03/best_samsung_phone_uk_2023_smartphones.jpg"
+          src={
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQtYvplECy3gYCCNe11sBYPKSRfY1fuYpu8JQ&usqp=CAU"
+          }
           alt="banner Image"
         />
         <div className="home_row">

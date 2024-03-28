@@ -1,20 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterProvider } from "react-router-dom";
 import "./index.css";
-import Checkout from "./pages/Checkout.tsx";
-
-const router = createBrowserRouter([
-  {
-    path: "/checkout",
-    element: <Checkout />,
-  },
-  {
-    path: "/",
-    element: <App />,
-  },
-]);
+import router from "./routes.tsx";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
