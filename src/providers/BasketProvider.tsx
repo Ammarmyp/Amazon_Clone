@@ -1,16 +1,16 @@
-import React, { ReactNode, useReducer } from "react";
-import basketReducer from "../reducer/basketReducer";
+import { ReactNode, useReducer } from "react";
 import BasketContex from "../contexts/basketContext";
+import basketReducer from "../reducer/basketReducer";
 
 interface Props {
   children: ReactNode;
 }
 
 const BasketProvider = ({ children }: Props) => {
-  const [products, dispatch] = useReducer(basketReducer, []);
+  const [basketProducts, dispatch] = useReducer(basketReducer, []);
 
   return (
-    <BasketContex.Provider value={{ products, dispatch }}>
+    <BasketContex.Provider value={{ basketProducts, dispatch }}>
       {children}
     </BasketContex.Provider>
   );

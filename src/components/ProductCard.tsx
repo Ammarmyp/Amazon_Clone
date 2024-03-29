@@ -8,9 +8,9 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-  const { products, dispatch } = useContext(BasketContex);
+  const { basketProducts, dispatch } = useContext(BasketContex);
 
-  console.log("basket: ", products);
+  console.log("basket: ", basketProducts);
 
   return (
     <div className="product">

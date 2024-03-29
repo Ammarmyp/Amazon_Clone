@@ -6,9 +6,9 @@ import BasketContex from "../contexts/basketContext";
 import "../styles/header.css";
 
 const Header = () => {
-  const { products } = useContext(BasketContex);
+  const {  basketProducts } = useContext(BasketContex);
 
-  console.log(products);
+  console.log(basketProducts);
   return (
     <div className="header">
       <div className="wrapper">
@@ -41,7 +41,7 @@ const Header = () => {
           <div className="header_optionCart">
             <ShoppingCartIcon />
             <span className="header_optionLineTwo header_cartCount">
-              {products.length}
+              {basketProducts.length}
             </span>
           </div>
         </Link>

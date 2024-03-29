@@ -4,7 +4,7 @@ import { ProductAction } from "../reducer/basketReducer";
 import React from "react";
 
 interface BasketContextType {
-    products: Product[];
+    basketProducts: Product[];
     dispatch: Dispatch<ProductAction>;
 }
 

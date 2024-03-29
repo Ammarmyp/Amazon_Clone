@@ -1,15 +1,25 @@
-import  CurrencyFormat from "react-currency-format";
+import CurrencyFormat from "react-currency-format";
 import "../styles/subtotal.css";
+import { useContext } from "react";
+import BasketContex from "../contexts/basketContext";
 
 const Subtotal = () => {
+  const { basketProducts } = useContext(BasketContex);
+
+  /* total price of the basket */
+  const basketTotalPrice = basketProducts.reduce(
+    (acc, basketProducts) => basketProducts.price + acc,
+    0
+  );
+
   return (
     <div className="subtotal">
       <CurrencyFormat
-        renderText={() => (
+        renderText={(value: number) => (
           <>
             <p>
-              {/* Part of the homework */}
-              Subtotal (0 items): <strong>0</strong>
+              Subtotal ({basketProducts.length} items):
+              <strong> {value}</strong>
             </p>
             <small className="subtotal_gift">
               <input type="checkbox" /> This order contains a gift
@@ -17,7 +27,7 @@ const Subtotal = () => {
           </>
         )}
         decimalScale={2}
-        value={0} // Part of the homework
+        value={basketTotalPrice}
         displayType={"text"}
         thousandSeparator={true}
         prefix={"$"}
