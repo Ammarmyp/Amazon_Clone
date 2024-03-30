@@ -28,7 +28,7 @@ const ProductCard = ({ product }: Props) => {
         <div className="product_rating">
           {/*  //the second argument here is a mapping function
           //mapping eachl element of the array to a star. */}
-          {Array.from({ length: product.rating.rate ?? 0 }, (_, i) => (
+          {Array.from({ length: product.rating.rate }, (_, i) => (
             <p key={i}>🌟</p>
           ))}
         </div>
