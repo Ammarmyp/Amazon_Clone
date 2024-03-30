@@ -15,11 +15,6 @@ const LoginForm = () => {
           <input id="password" type="password" />
         </div>
 
-        <div className="label_with_input">
-          <label htmlFor="email">Email</label>
-          <input id="email" type="email" />
-        </div>
-
         <button className="login_signIn_btn" type="submit">
           Sign In
         </button>
