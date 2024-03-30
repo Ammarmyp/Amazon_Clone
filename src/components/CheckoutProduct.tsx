@@ -1,11 +1,15 @@
+import { useContext } from "react";
 import { Product } from "../hooks/useProducts";
 import "../styles/chekoutProduct.css";
+import BasketContex from "../contexts/basketContext";
 
 interface Props {
   basketItem: Product;
-} 
+}
 
 const CheckoutProduct = ({ basketItem }: Props) => {
+  const { dispatch } = useContext(BasketContex);
+
   return (
     <div className="checkoutProduct">
       <img className="checkoutProduct_Image" src={basketItem.image} />
@@ -18,7 +22,14 @@ const CheckoutProduct = ({ basketItem }: Props) => {
             <p key={i}>🌟</p>
           ))}
         </div>
-        <button> Remove </button>
+        <button
+          onClick={() =>
+            dispatch({ type: "REMOVE_FROM_BASKET", productId: basketItem.id })
+          }
+        >
+          {" "}
+          Remove{" "}
+        </button>
       </div>
     </div>
   );

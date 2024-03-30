@@ -8,9 +8,7 @@ interface Props {
 }
 
 const ProductCard = ({ product }: Props) => {
-  const { basketProducts, dispatch } = useContext(BasketContex);
-
-  console.log("basket: ", basketProducts);
+  const { dispatch } = useContext(BasketContex);
 
   return (
     <div className="product">
@@ -38,7 +36,7 @@ const ProductCard = ({ product }: Props) => {
         </div>
       </div>
       <button
-        onClick={() => dispatch({ type: "ADD TO BASKET", product: product })}
+        onClick={() => dispatch({ type: "ADD_TO_BASKET", product: product })}
       >
         Add to Cart
       </button>
