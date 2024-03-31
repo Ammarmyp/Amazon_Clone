@@ -33,7 +33,7 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <Button label="Proced to Chekout" />
+      <Button type="button" label="Proced to Chekout" width="100%" />
     </div>
   );
 };
