@@ -1,7 +1,8 @@
-import CurrencyFormat from "react-currency-format";
-import "../styles/subtotal.css";
 import { useContext } from "react";
+import CurrencyFormat from "react-currency-format";
 import BasketContex from "../contexts/basketContext";
+import "../styles/subtotal.css";
+import Button from "./Button";
 
 const Subtotal = () => {
   const { basketProducts } = useContext(BasketContex);
@@ -32,7 +33,7 @@ const Subtotal = () => {
         thousandSeparator={true}
         prefix={"$"}
       />
-      <button>Proceed to Checkout</button>
+      <Button label="Proced to Chekout" />
     </div>
   );
 };

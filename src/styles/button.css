@@ -1,0 +1,23 @@
+.reusable_btn {
+    margin: 10px auto;
+    background: #f0c14b;
+    border-radius: 5px;
+    height: 30px;
+    border: 1px solid;
+    padding: 5px;
+    border-color: #a88734 #9c7e31 #846a29;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.75rem;
+    transition: all ease-in-out 150ms ;
+}
+
+.reusable_btn:hover {
+    background:#e4a915 ;
+    border: 1.5px solid #111;
+
+}
+
+.width {
+    width: 100%;
+}
